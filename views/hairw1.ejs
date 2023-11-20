@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Hair Studio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff99cc;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .service {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+        }
+
+        .service img {
+            max-width: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .service-info {
+            flex-grow: 1;
+        }
+
+        .service h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+
+        .service p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .service-price {
+            font-weight: bold;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+
+        .service-details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .view-details {
+            cursor: pointer;
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        .service button {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .service button:hover {
+            background-color: #333;
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            z-index: 999;
+        }
+
+        .cart h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Back navigation arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .remove-btn {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .remove-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Women's Hair Studio</h1>
+    </header>
+
+    <section>
+        <!-- Service 1: Haircut and Styling -->
+        <div class="service" id="haircut-styling">
+            <img src="Screenshot 2023-11-20 at 12.28.40 AM.png" alt="Haircut and Styling">
+            <div class="service-info">
+                <h2>Haircut and Styling</h2>
+                <p>A classic haircut and styling to suit your personality.</p>
+                <p class="service-price">Starting from Rs. 1800.00</p>
+                <button onclick="addToCart('Haircut and Styling', 1800.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('haircut-styling-details')">View Details</span>
+                <div class="service-details" id="haircut-styling-details">
+                    <p>Our professional haircut and styling service include:</p>
+                    <ul>
+                        <li>Consultation with our experienced stylists</li>
+                        <li>Customized haircut based on your preferences</li>
+                        <li>Professional styling for any occasion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Blow-dry and Style -->
+        <div class="service" id="blow-dry-style">
+            <img src="Screenshot 2023-11-20 at 12.28.46 AM.png" alt="Blow-dry and Style">
+            <div class="service-info">
+                <h2>Blow-dry and Style</h2>
+                <p>Get a sleek and stylish look with our blow-dry and styling service.</p>
+                <p class="service-price">Starting from Rs. 1300.00</p>
+                <button onclick="addToCart('Blow-dry and Style', 1300.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('blow-dry-style-details')">View Details</span>
+                <div class="service-details" id="blow-dry-style-details">
+                    <p>Our blow-dry and style service include:</p>
+                    <ul>
+                        <li>Professionally done blow-dry for a smooth finish</li>
+                        <li>Styling options based on your preference</li>
+                        <li>Long-lasting and elegant results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Trim and Style -->
+        <div class="service" id="trim-style">
+            <img src="Screenshot 2023-11-20 at 12.28.54 AM.png" alt="Trim and Style">
+            <div class="service-info">
+                <h2>Trim and Style</h2>
+                <p>Refresh your look with a trim and personalized styling.</p>
+                <p class="service-price">Starting from Rs. 900.00</p>
+                <button onclick="addToCart('Trim and Style', 900.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('trim-style-details')">View Details</span>
+                <div class="service-details" id="trim-style-details">
+                    <p>Our trim and style service include:</p>
+                    <ul>
+                        <li>Trimming by our skilled stylists</li>
+                        <li>Personalized styling to enhance your features</li>
+                        <li>Advice on at-home maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Hair Care -->
+        <div class="service" id="hair-care">
+            <img src="Screenshot 2023-11-20 at 12.29.00 AM.png" alt="Hair Care">
+            <div class="service-info">
+                <h2>Hair Care</h2>
+                <p>Nourish and revitalize your hair with our specialized hair care treatments.</p>
+                <p class="service-price">Starting from Rs. 1600.00</p>
+                <button onclick="addToCart('Hair Care', 1600.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('hair-care-details')">View Details</span>
+                <div class="service-details" id="hair-care-details">
+                    <p>Our hair care services include:</p>
+                    <ul>
+                        <li>Deep conditioning treatments</li>
+                        <li>Scalp massage for relaxation</li>
+                        <li>Customized care based on your hair type</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5: Hair Botox -->
+        <div class="service" id="hair-botox">
+            <img src="Screenshot 2023-11-20 at 12.29.05 AM.png" alt="Hair Botox">
+            <div class="service-info">
+                <h2>Hair Botox</h2>
+                <p>Revitalize and rejuvenate your hair with our hair botox treatment.</p>
+                <p class="service-price">Starting from Rs. 8000.00</p>
+                <button onclick="addToCart('Hair Botox', 8000.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('hair-botox-details')">View Details</span>
+                <div class="service-details" id="hair-botox-details">
+                    <p>Our hair botox treatment includes:</p>
+                    <ul>
+                        <li>Intensive repair for damaged hair</li>
+                        <li>Smoothing and frizz reduction</li>
+                        <li>Long-lasting shine and softness</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 6: Monthly Colour -->
+        <div class="service" id="monthly-colour">
+            <img src="Screenshot 2023-11-20 at 12.29.10 AM.png" alt="Monthly Colour">
+            <div class="service-info">
+                <h2>Monthly Colour</h2>
+                <p>Experience vibrant and long-lasting color with our monthly coloring service.</p>
+                <p class="service-price">Starting from Rs. 1700.00</p>
+                <button onclick="addToCart('Monthly Colour', 1700.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('monthly-colour-details')">View Details</span>
+                <div class="service-details" id="monthly-colour-details">
+                    <p>Our monthly coloring service includes:</p>
+                    <ul>
+                        <li>Consultation for the perfect shade</li>
+                        <li>Professional coloring application</li>
+                        <li>Color protection and maintenance tips</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 7: Fashion Colour -->
+        <div class="service" id="fashion-colour">
+            <img src="Screenshot 2023-11-20 at 12.29.15 AM.png" alt="Fashion Colour">
+            <div class="service-info">
+                <h2>Fashion Colour</h2>
+                <p>Express your style with our trendy and fashion-forward coloring options.</p>
+                <p class="service-price">Starting from Rs. 3000.00</p>
+                <button onclick="addToCart('Fashion Colour', 3000.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('fashion-colour-details')">View Details</span>
+                <div class="service-details" id="fashion-colour-details">
+                    <p>Our fashion color service includes:</p>
+                    <ul>
+                        <li>Unique and creative color choices</li>
+                        <li>Customized patterns and designs</li>
+                        <li>Expert application for a bold statement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart" id="cart">
+        <h2>Cart</h2>
+        <ul id="cart-list"></ul>
+        <p id="total">Total: Rs. 0.00</p>
+    </div>
+
+
+
+    <script>
+        var cart = [];
+        var total = 0;
+
+        function addToCart(service, price) {
+            cart.push({ service, price });
+            total += price;
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            var removedItem = cart.splice(index, 1)[0];
+            total -= removedItem.price;
+            updateCart();
+        }
+
+        function updateCart() {
+            var cartList = document.getElementById('cart-list');
+            var totalElement = document.getElementById('total');
+            cartList.innerHTML = '';
+            cart.forEach((item, index) => {
+                var listItem = document.createElement('li');
+                listItem.innerHTML = `${item.service} - Rs. ${item.price.toFixed(2)} <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>`;
+                cartList.appendChild(listItem);
+            });
+            totalElement.textContent = `Total: Rs. ${total.toFixed(2)}`;
+        }
+
+        function toggleDetails(detailsId) {
+            var details = document.getElementById(detailsId);
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        }
+
+    </script>
+
+</body>
+
+</html>

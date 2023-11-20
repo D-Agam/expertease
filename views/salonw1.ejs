@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Salon Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff99cc;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .service {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+        }
+
+        .service img {
+            max-width: 120px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .service-info {
+            flex-grow: 1;
+        }
+
+        .service h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+
+        .service p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .service-price {
+            font-weight: bold;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+
+        .service-details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .view-details {
+            cursor: pointer;
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        .service button {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .service button:hover {
+            background-color: #333;
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            z-index: 999;
+        }
+
+        .cart h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Back navigation arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Women's Salon Services</h1>
+    </header>
+
+    <section>
+        <!-- Service 1: Waxing -->
+        <div class="service" id="waxing">
+            <img src="Screenshot 2023-11-20 at 12.08.05 AM.png" alt="Waxing">
+            <div class="service-info">
+                <h2>Waxing</h2>
+                <p>Choose from different types of waxing services to achieve smooth and hair-free skin.</p>
+                <p class="service-price">Starting from Rs. 300.00</p>
+                <button onclick="addToCart('Waxing', 300.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('waxing-details')">View Details</span>
+                <div class="service-details" id="waxing-details">
+                    <p>Our waxing services include various types such as:</p>
+                    <ul>
+                        <li>Full Body Waxing</li>
+                        <li>Bikini Wax</li>
+                        <li>Underarm Waxing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Manicure -->
+        <div class="service" id="manicure">
+            <img src="Screenshot 2023-11-20 at 12.08.55 AM.png" alt="Manicure">
+            <div class="service-info">
+                <h2>Manicure</h2>
+                <p>Pamper your hands with our professional manicure services.</p>
+                <p class="service-price">Rs. 900.00</p>
+                <button onclick="addToCart('Manicure', 900.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('manicure-details')">View Details</span>
+                <div class="service-details" id="manicure-details">
+                    <p>Our manicure service includes:</p>
+                    <ul>
+                        <li>Nail Shaping and Buffing</li>
+                        <li>Cuticle Care</li>
+                        <li>Hand Massage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Pedicure -->
+        <div class="service" id="pedicure">
+            <img src="Screenshot 2023-11-20 at 12.09.34 AM.png" alt="Pedicure">
+            <div class="service-info">
+                <h2>Pedicure</h2>
+                <p>Treat your feet to a relaxing pedicure for softer and smoother skin.</p>
+                <p class="service-price">Rs. 1300.00</p>
+                <button onclick="addToCart('Pedicure', 1300.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('pedicure-details')">View Details</span>
+                <div class="service-details" id="pedicure-details">
+                    <p>Our pedicure service includes:</p>
+                    <ul>
+                        <li>Foot Soak</li>
+                        <li>Exfoliation</li>
+                        <li>Callus Removal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Facials & Cleanups -->
+        <div class="service" id="facials-cleanups">
+            <img src="Screenshot 2023-11-20 at 12.10.05 AM.png" alt="Facials & Cleanups">
+            <div class="service-info">
+                <h2>Facials & Cleanups</h2>
+                <p>Revitalize your skin with our facial and cleanup services for a radiant complexion.</p>
+                <p class="service-price">Starting from Rs. 800.00</p>
+                <button onclick="addToCart('Facials & Cleanups', 800.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('facials-cleanups-details')">View Details</span>
+                <div class="service-details" id="facials-cleanups-details">
+                    <p>Our facial and cleanup services include various types such as:</p>
+                    <ul>
+                        <li>Basic Cleanup</li>
+                        <li>Fruit Facial</li>
+                        <li>Gold Facial</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5: Threading and Face Wax -->
+        <div class="service" id="threading-face-wax">
+            <img src="Screenshot 2023-11-20 at 12.10.35 AM.png" alt="Threading and Face Wax">
+            <div class="service-info">
+                <h2>Threading and Face Wax</h2>
+                <p>Define your eyebrows with threading and enhance facial hair removal with face wax.</p>
+                <p class="service-price">Starting from Rs. 150.00</p>
+                <button onclick="addToCart('Threading and Face Wax', 150.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('threading-face-wax-details')">View Details</span>
+                <div class="service-details" id="threading-face-wax-details">
+                    <p>Our threading and face wax services include:</p>
+                    <ul>
+                        <li>Eyebrow Threading</li>
+                        <li>Upper Lip Threading</li>
+                        <li>Full Face Wax</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 6: Bleach and Detan -->
+        <div class="service" id="bleach-detan">
+            <img src="Screenshot 2023-11-20 at 12.11.10 AM.png" alt="Bleach and Detan">
+            <div class="service-info">
+                <h2>Bleach and Detan</h2>
+                <p>Lighten your skin tone with bleach and remove tan for a brighter complexion.</p>
+                <p class="service-price">Starting from Rs. 250.00</p>
+                <button onclick="addToCart('Bleach and Detan', 250.00)">Add to Cart</button>
+                <span class="view-details" onclick="toggleDetails('bleach-detan-details')">View Details</span>
+                <div class="service-details" id="bleach-detan-details">
+                    <p>Our bleach and detan services include various types such as:</p>
+                    <ul>
+                        <li>Fruit Bleach</li>
+                        <li>Gold Bleach</li>
+                        <li>Anti-Tan Detan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart" id="cart">
+        <h2>Cart</h2>
+        <ul id="cart-list"></ul>
+        <p>Total: Rs<span id="total">0.00</span></p>
+    </div>
+
+    <!-- Back navigation arrow -->
+    <a href="salonw.html" onclick="goBack()" class="back-arrow">&larr;</a>
+
+    <script>
+        var cart = [];
+        var total = 0.0;
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function addToCart(serviceName, price) {
+            // Add item to the cart array
+            cart.push({ service: serviceName, price: price });
+
+            // Update the total
+            total += price;
+
+            // Update the cart list
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            var removedItem = cart.splice(index, 1)[0];
+            total -= removedItem.price;
+            updateCart();
+        }
+
+        function updateCart() {
+            var cartList = document.getElementById('cart-list');
+            var totalElement = document.getElementById('total');
+            cartList.innerHTML = '';
+            cart.forEach((item, index) => {
+                var listItem = document.createElement('li');
+                listItem.innerHTML = `${item.service} - Rs. ${item.price.toFixed(2)} <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>`;
+                cartList.appendChild(listItem);
+            });
+            totalElement.textContent = ` ${total.toFixed(2)}`;
+        }
+
+        function toggleDetails(detailsId) {
+            var details = document.getElementById(detailsId);
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+
+</html>
