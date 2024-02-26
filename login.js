@@ -53,7 +53,8 @@ app.post('/login',(req,res)=>{
                 res.render('kolkata.ejs',{name:name,city:city});
             }
           } else {
-            alert("Invalid Details");
+            const prompt=require('prompt-sync')()
+            prompt('Enter your name:')
             res.redirect('/login');
           }
         }
@@ -70,7 +71,6 @@ app.post('/signup', (req, res) => {
   let contact = req.body.contact;
 
   if (contact.length !== 10) {
-      alert("Invalid phone number length. Please enter a valid phone number.");
       return res.redirect('/signup');
   }
 
@@ -82,8 +82,7 @@ app.post('/signup', (req, res) => {
               console.log(err);
           } else {
               if (results.length !== 0) {
-                  alert("User already exists. Please login.");
-                  res.render('signup.ejs');
+                  res.render('login.ejs');
               } else {
                   connection.query(
                       'INSERT INTO users(name, password, phonenumber) VALUES (?, ?, ?)',
@@ -99,7 +98,6 @@ app.post('/signup', (req, res) => {
                           if (isValid) {
                               res.render('login.ejs');
                           } else {
-                              alert("Invalid details. Signup again.");
                               res.redirect('/signup');
                           }
                       }
