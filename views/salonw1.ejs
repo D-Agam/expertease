@@ -155,7 +155,7 @@
                 <h2>Waxing</h2>
                 <p>Choose from different types of waxing services to achieve smooth and hair-free skin.</p>
                 <p class="service-price">Starting from Rs. 300.00</p>
-                <button onclick="addToCart('Waxing', 300.00)">Add to Cart</button>
+                <button onclick="addToCart('Waxing', 300.00)" id="waxing">Add to Cart</button>
                 <span class="view-details" onclick="toggleDetails('waxing-details')">View Details</span>
                 <div class="service-details" id="waxing-details">
                     <p>Our waxing services include various types such as:</p>
@@ -168,94 +168,14 @@
             </div>
         </div>
 
-        <!-- Service 2: Manicure -->
-        <div class="service" id="manicure">
-            <img src="Screenshot 2023-11-20 at 12.08.55 AM.png" alt="Manicure">
-            <div class="service-info">
-                <h2>Manicure</h2>
-                <p>Pamper your hands with our professional manicure services.</p>
-                <p class="service-price">Rs. 900.00</p>
-                <button onclick="addToCart('Manicure', 900.00)">Add to Cart</button>
-                <span class="view-details" onclick="toggleDetails('manicure-details')">View Details</span>
-                <div class="service-details" id="manicure-details">
-                    <p>Our manicure service includes:</p>
-                    <ul>
-                        <li>Nail Shaping and Buffing</li>
-                        <li>Cuticle Care</li>
-                        <li>Hand Massage</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 3: Pedicure -->
-        <div class="service" id="pedicure">
-            <img src="Screenshot 2023-11-20 at 12.09.34 AM.png" alt="Pedicure">
-            <div class="service-info">
-                <h2>Pedicure</h2>
-                <p>Treat your feet to a relaxing pedicure for softer and smoother skin.</p>
-                <p class="service-price">Rs. 1300.00</p>
-                <button onclick="addToCart('Pedicure', 1300.00)">Add to Cart</button>
-                <span class="view-details" onclick="toggleDetails('pedicure-details')">View Details</span>
-                <div class="service-details" id="pedicure-details">
-                    <p>Our pedicure service includes:</p>
-                    <ul>
-                        <li>Foot Soak</li>
-                        <li>Exfoliation</li>
-                        <li>Callus Removal</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 4: Facials & Cleanups -->
-        <div class="service" id="facials-cleanups">
-            <img src="Screenshot 2023-11-20 at 12.10.05 AM.png" alt="Facials & Cleanups">
-            <div class="service-info">
-                <h2>Facials & Cleanups</h2>
-                <p>Revitalize your skin with our facial and cleanup services for a radiant complexion.</p>
-                <p class="service-price">Starting from Rs. 800.00</p>
-                <button onclick="addToCart('Facials & Cleanups', 800.00)">Add to Cart</button>
-                <span class="view-details" onclick="toggleDetails('facials-cleanups-details')">View Details</span>
-                <div class="service-details" id="facials-cleanups-details">
-                    <p>Our facial and cleanup services include various types such as:</p>
-                    <ul>
-                        <li>Basic Cleanup</li>
-                        <li>Fruit Facial</li>
-                        <li>Gold Facial</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 5: Threading and Face Wax -->
-        <div class="service" id="threading-face-wax">
-            <img src="Screenshot 2023-11-20 at 12.10.35 AM.png" alt="Threading and Face Wax">
-            <div class="service-info">
-                <h2>Threading and Face Wax</h2>
-                <p>Define your eyebrows with threading and enhance facial hair removal with face wax.</p>
-                <p class="service-price">Starting from Rs. 150.00</p>
-                <button onclick="addToCart('Threading and Face Wax', 150.00)">Add to Cart</button>
-                <span class="view-details" onclick="toggleDetails('threading-face-wax-details')">View Details</span>
-                <div class="service-details" id="threading-face-wax-details">
-                    <p>Our threading and face wax services include:</p>
-                    <ul>
-                        <li>Eyebrow Threading</li>
-                        <li>Upper Lip Threading</li>
-                        <li>Full Face Wax</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 6: Bleach and Detan -->
+        <!-- Service 2: Bleach and Detan -->
         <div class="service" id="bleach-detan">
             <img src="Screenshot 2023-11-20 at 12.11.10 AM.png" alt="Bleach and Detan">
             <div class="service-info">
                 <h2>Bleach and Detan</h2>
                 <p>Lighten your skin tone with bleach and remove tan for a brighter complexion.</p>
                 <p class="service-price">Starting from Rs. 250.00</p>
-                <button onclick="addToCart('Bleach and Detan', 250.00)">Add to Cart</button>
+                <button onclick="addToCart('Bleach and Detan', 250.00)" id="detan">Add to Cart</button>
                 <span class="view-details" onclick="toggleDetails('bleach-detan-details')">View Details</span>
                 <div class="service-details" id="bleach-detan-details">
                     <p>Our bleach and detan services include various types such as:</p>
