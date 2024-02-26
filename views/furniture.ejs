@@ -218,57 +218,7 @@
         <h1>Furniture Assembly Services</h1>
     </header>
 
-    <section>
-        <!-- Service 1 -->
-        <div class="service" id="service1">
-            <img src="Screenshot 2023-11-19 at 7.06.13 PM.png" alt="Table Assembly">
-            <div class="service-info">
-                <h2>Assembly of Table</h2>
-                <p>We'll assemble your table with precision and care. Our service includes:</p>
-                <ul>
-                    <li>Professional assembly of the table</li>
-                    <li>Quality inspection</li>
-                    <li>Installation at your desired location</li>
-                </ul>
-                <p class="service-price">Rs. 2490.00</p>
-                <button onclick="addToCart('Table Assembly', 2490.00)">Add to Cart</button>
-                <span class="read-more" onclick="toggleDetails('service1-details')">Read More</span>
-                <div class="service-details" id="service1-details">
-                    <p>Our skilled technicians use high-quality tools to ensure a sturdy and well-assembled table. We also provide a satisfaction guarantee on our assembly services.</p>
-                    <p>Additional Services:</p>
-                    <ul>
-                        <li>Customization options for table design</li>
-                        <li>Table maintenance and repair</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="service" id="service2">
-            <img src="Screenshot 2023-11-19 at 7.07.33 PM.png" alt="Chair Assembly">
-            <div class="service-info">
-                <h2>Assembly of Chair</h2>
-                <p>Relax while we assemble your chair for you. Our service includes:</p>
-                <ul>
-                    <li>Professional assembly of the chair</li>
-                    <li>Quality inspection</li>
-                    <li>Installation at your desired location</li>
-                </ul>
-                <p class="service-price">Rs. 1600.00</p>
-                <button onclick="addToCart('Chair Assembly', 1600.00)">Add to Cart</button>
-                <span class="read-more" onclick="toggleDetails('service2-details')">Read More</span>
-                <div class="service-details" id="service2-details">
-                    <p>Our chair assembly service ensures that you can enjoy your comfortable chair without the hassle of assembling it yourself. We guarantee a quick and efficient assembly process.</p>
-                    <p>Additional Services:</p>
-                    <ul>
-                        <li>Chair upholstery options</li>
-                        <li>Chair maintenance and cleaning</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
+    <section> 
         <!-- Service 3 -->
         <div class="service" id="service3">
             <img src="Screenshot 2023-11-19 at 7.08.42 PM.png" alt="Sofa Assembly">
@@ -281,7 +231,7 @@
                     <li>Installation at your desired location</li>
                 </ul>
                 <p class="service-price">Rs. 4500.00</p>
-                <button onclick="addToCart('Sofa Assembly', 4500.00)">Add to Cart</button>
+                <button onclick="addToCart('Sofa Assembly', 4500.00)" id="sofa">Add to Cart</button>
                 <span class="read-more" onclick="toggleDetails('service3-details')">Read More</span>
                 <div class="service-details" id="service3-details">
                     <p>Our sofa assembly service combines comfort and style. Let us handle the assembly so you can enjoy your new sofa stress-free.</p>
@@ -306,7 +256,7 @@
                     <li>Installation at your desired location</li>
                 </ul>
                 <p class="service-price">Rs. 3350.00</p>
-                <button onclick="addToCart('Bed Assembly', 3350.00)">Add to Cart</button>
+                <button onclick="addToCart('Bed Assembly', 3350.00)" id="bed">Add to Cart</button>
                 <span class="read-more" onclick="toggleDetails('service4-details')">Read More</span>
                 <div class="service-details" id="service4-details">
                     <p>Our bed assembly service ensures a solid foundation for a restful sleep. We take care of every detail so you can relax in your new bed.</p>
@@ -331,7 +281,7 @@
                     <li>Installation at your desired location</li>
                 </ul>
                 <p class="service-price">Rs. 2900.00</p>
-                <button onclick="addToCart('Cabinet Assembly', 2900.00)">Add to Cart</button>
+                <button onclick="addToCart('Cabinet Assembly', 2900.00)" id="cabinet">Add to Cart</button>
                 <span class="read-more" onclick="toggleDetails('service5-details')">Read More</span>
                 <div class="service-details" id="service5-details">
                     <p>Our cabinet assembly service maximizes your storage space while maintaining a stylish look. Trust us to handle the assembly details for you.</p>
@@ -356,7 +306,7 @@
                     <li>Installation at your desired location</li>
                 </ul>
                 <p class="service-price">Rs. 3750.00</p>
-                <button onclick="addToCart('Showcase Assembly', 3750.00)">Add to Cart</button>
+                <button onclick="addToCart('Showcase Assembly', 3750.00)" id="showcase">Add to Cart</button>
                 <span class="read-more" onclick="toggleDetails('service6-details')">Read More</span>
                 <div class="service-details" id="service6-details">
                     <p>Our showcase assembly service is designed to highlight your valuable items. We pay attention to detail to ensure a showcase that complements your style.</p>
