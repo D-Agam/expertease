@@ -102,13 +102,22 @@
             font-size: 24px;
             margin-bottom: 10px;
         }
-
-        #cart-list {
+        #cart-final {
+        background-color: #ff99cc;
+        border: none;
+        font-weight: bolder;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
+        }
+        #cart1{
             list-style: none;
             padding: 0;
         }
 
-        #cart-list li {
+        #cart1 li {
             font-size: 16px;
             margin-bottom: 5px;
             display: flex;
@@ -209,54 +218,100 @@
         </div>
     </section>
 
-    <div class="cart" id="cart">
-        <h2>Cart</h2>
-        <ul id="cart-list"></ul>
-        <p>Total: Rs<span id="total">0.00</span></p>
-    </div>
-
-    <script>
+    <form id="checkout-form" method="get" action="/checkout">
+        <div class="cart" id="cart">
+          <h2>Cart</h2>
+          <ul id="cart1"></ul>
+          <p>Total: Rs<span id="total">0</span></p>
+          <button id="cart-final">Checkout</button>
+        </div>
+      </form>
+  
+      <footer>
+        <p>&copy; 2023 Furniture Assembly Services. All rights reserved.</p>
+      </footer>
+  
+      <script>
         var cart = [];
         var total = 0.0;
-
+  
         function goBack() {
-            window.history.back();
+          window.history.back();
         }
-
+  
         function addToCart(serviceName, price) {
-            // Add item to the cart array
-            cart.push({ service: serviceName, price: price });
-
-            // Update the total
-            total += price;
-
-            // Update the cart list
-            updateCart();
+          cart.push({ service: serviceName, price: price });
+          total += price;
+          var cartList = document.getElementById("cart1");
+          var newItem = document.createElement("li");
+          var textNode = document.createTextNode(serviceName);
+          newItem.appendChild(textNode);
+          cartList.appendChild(newItem);
+          var amt = document.getElementById("total");
+          amt.innerText = total.toFixed(2);
         }
-
+  
         function removeFromCart(index) {
-            var removedItem = cart.splice(index, 1)[0];
-            total -= removedItem.price;
-            updateCart();
+          var removedItem = cart.splice(index, 1)[0];
+          total -= removedItem.price;
+          var cartList = document.getElementById("cart1");
+          cartList.removeChild(cartList.childNodes[index]);
+          var amt = document.getElementById("total");
+          amt.innerText = total.toFixed(2);
         }
-
+  
         function updateCart() {
-            var cartList = document.getElementById('cart-list');
-            var totalElement = document.getElementById('total');
-            cartList.innerHTML = '';
-            cart.forEach((item, index) => {
-                var listItem = document.createElement('li');
-                listItem.innerHTML = `${item.service} - Rs. ${item.price.toFixed(2)} <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>`;
-                cartList.appendChild(listItem);
-            });
-            totalElement.textContent = ` ${total.toFixed(2)}`;
+          var cartList = document.getElementById("cart1");
+          var totalElement = document.getElementById("total");
+          cartList.innerHTML = "";
+          cart.forEach((item, index) => {
+            var listItem = document.createElement("li");
+            listItem.innerHTML = `${item.service} - Rs. ${item.price.toFixed(
+              2
+            )} <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>`;
+            cartList.appendChild(listItem);
+          });
+          totalElement.textContent = ` ${total.toFixed(2)}`;
         }
-
+  
         function toggleDetails(detailsId) {
-            var details = document.getElementById(detailsId);
-            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+          var details = document.getElementById(detailsId);
+          details.style.display =
+            details.style.display === "none" ? "block" : "none";
         }
-    </script>
+  
+        // Function to handle form submission
+        document
+          .getElementById("cart-final")
+          .addEventListener("click", function () {
+            // Add hidden input fields for each item in the cart
+            cart.forEach((item, index) => {
+              var form = document.getElementById("checkout-form");
+              var serviceNameInput = document.createElement("input");
+              var priceInput = document.createElement("input");
+              serviceNameInput.type = "hidden";
+              priceInput.type = "hidden";
+              serviceNameInput.name = `service${index + 1}`; // Unique name for each service
+              priceInput.name = `price${index + 1}`; // Unique name for each price
+              serviceNameInput.value = item.service;
+              priceInput.value = item.price.toFixed(2);
+              form.appendChild(serviceNameInput);
+              form.appendChild(priceInput);
+            });
+  
+            // Add a hidden input field to the form with the total amount
+            var form = document.getElementById("checkout-form");
+            var totalInput = document.createElement("input");
+            totalInput.type = "hidden";
+            totalInput.name = "total";
+            totalInput.value = total.toFixed(2);
+            form.appendChild(totalInput);
+  
+            // Submit the form
+            form.submit();
+          });
+      </script>
+
 
 </body>
 
